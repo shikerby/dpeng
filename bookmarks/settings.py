@@ -121,6 +121,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
+
+
+# 配置外部SMTP服务器
+# 下面的是模拟发送密码重置邮件链接
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# 如果是发送真是邮件链接 需要 将上面的 CONSOLE 改为SMTP
+# DEFAULT_FROM_EMAIL = 'shikerby@qq.com'
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_HOST_USER = 'shikerby@qq.com'
+EMAIL_HOST_PASSWORD = 'hksexebqbseqbhcf'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
